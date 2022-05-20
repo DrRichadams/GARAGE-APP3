@@ -1,7 +1,7 @@
 import { CHANGE_JOB_NAME } from "../actions/GarageActions"
 
 const initState = {
-    jobs: [ { id: 1, name: "Nissan" } ],
+    jobs: [  ],
     employees: []
 }
 

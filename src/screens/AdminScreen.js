@@ -21,7 +21,7 @@ const AdminScreen = ({ navigation }) => {
             <Title2>Good day Valentine, welcome to your dashboard</Title2>
             <InnerContainer>
                 <OutBtn onPress={() => navigation.navigate("AddJob")}><OutBtnText>Add Job</OutBtnText></OutBtn>
-                <OutBtn><OutBtnText>Assign Job</OutBtnText></OutBtn>
+                <OutBtn onPress={() => navigation.navigate("AssignJob")}><OutBtnText>Assign Job</OutBtnText></OutBtn>
                 <OutBtn><OutBtnText>Reports</OutBtnText></OutBtn>
             </InnerContainer>
             <InnerContainerSmall>
