@@ -5,15 +5,7 @@ import { Title2, Title4 } from "../features/Titles"
 import { OutBtn } from "../features/Buttons"
 import { OutBtnText } from "../features/Texts"
 
-import { useDispatch } from "react-redux"
-import { changeJobName } from "../../store/actions/GarageActions"
-
 const LoginScreen = ({ navigation }) => {
-
-    const dispatch = useDispatch();
-    const applyDispatch = () => {
-        dispatch(changeJobName(1))
-    }
     return(
         <MainContainer>
             <Image 
@@ -23,7 +15,6 @@ const LoginScreen = ({ navigation }) => {
             <Title4>Choose account type below to begin</Title4>
             <OutBtn varient="fill" color="#01050f" onPress={() => { 
                 navigation.navigate("Admin")
-                applyDispatch()
             }}>
                 <OutBtnText>Admin</OutBtnText> 
             </OutBtn>

@@ -6,9 +6,16 @@ import { Title2, Title4 } from "../../features/Titles"
 import { FullInput, SmallInput } from "../../features/Inputs"
 import { CheckBoxe, CheckBoxeWrapper } from "../../features/SmallBoxes"
 
+import { addJobAction } from "../../../store/actions/GarageActions"
+import { useDispatch } from "react-redux"
+
 import { AntDesign } from '@expo/vector-icons';
 
 const AddJob = ({ navigation }) => {
+
+    const dispatch = useDispatch()
+
+
 
     const [ job, setJob ] = React.useState({
         id: Math.random(),
@@ -17,6 +24,10 @@ const AddJob = ({ navigation }) => {
         tasks: [  ],
         report: "",
         isAssigned: false,
+        employee: {
+            name: "",
+            id: null,
+        }
     })
 
     const [ tempTask, setTempTask ] = React.useState("")
@@ -43,6 +54,7 @@ const AddJob = ({ navigation }) => {
 
     const addJobFunc = () => {
         if(job.make && job.tasks.length > 0) {
+            dispatch(addJobAction(job))
             console.log(job)
         } else {
             alert("Please, provide the required details")

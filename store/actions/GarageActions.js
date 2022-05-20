@@ -1,6 +1,6 @@
-export const CHANGE_JOB_NAME = "CHANGE_JOB_NAME";
+export const ADD_JOB = "ADD_JOB";
 
-export const changeJobName = (id) => {
-    console.log("Action working")
-    return { type: CHANGE_JOB_NAME, jobId: id }
+export const addJobAction = (job) => {
+    // console.log("Action working", job)
+    return { type: ADD_JOB, payload: job }
 }

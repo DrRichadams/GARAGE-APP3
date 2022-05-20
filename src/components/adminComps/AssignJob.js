@@ -7,28 +7,43 @@ import { Title2 } from "../../features/Titles"
 
 import { useSelector } from "react-redux"
 
-const AssignJob = () => {
+const AssignJob = ({ navigation }) => {
     const jobs = useSelector(state => state.garage.jobs)
     return(
         <UnCenterednContainer>
             <Title2 style={{ textTransform: "uppercase" }}>Assign Job</Title2>
+            <Text style={{ alignSelf: "flex-start", paddingLeft: 20, marginTop: 30, fontWeight: "bold" }}>Available Jobs</Text>
 
-            <InnerContainer>
+            <InnerContainer style={{ marginTop: 20 }}>
                 {
-                    jobs.length > 0 ? jobs.map((item, index) => (
-                        <View key={index}>
-                            <Text>{item.name}</Text>
-                        </View>
+                    jobs.length > 0 ? jobs.filter(job => job.isAssigned === false).map((item, index) => (
+                        <TouchableOpacity 
+                            key={index} 
+                            style={{ backgroundColor: "rgb(1,161,231)", padding: 8, width: "90%", borderRadius: 5, marginBottom: 8
+                            }}
+                            onPress={() => navigation.navigate("Employees")}>
+                            <Text style={{ color: "#fff", fontWeight: "bold" }}>{item.make}</Text>
+                        </TouchableOpacity>
                     ))
-                    :<View>
-                        <Text>There no jobs available</Text>
+                    :<View 
+                        style={{ 
+                                    backgroundColor: "#fff", 
+                                    paddingHorizontal: 12, 
+                                    paddingVertical: 50,
+                                    width: "90%", 
+                                    justifyContent: "center", 
+                                    alignItems: "center",
+                                    marginTop: 20,
+                                    borderRadius: 5,
+                                    }}>
+                        <Text style={{ fontWeight: "bold" }}>There no jobs available</Text>
                      </View>
                 }
             </InnerContainer>
 
             <InnerContainerSmall>
                 <ReturnBtn onPress={() => navigation.goBack()}>
-                    <Text style={{ color: "#fff" }}>LOG OUT</Text>
+                    <Text style={{ color: "#fff" }}>GO BACK</Text>
                 </ReturnBtn>
             </InnerContainerSmall>
         </UnCenterednContainer>

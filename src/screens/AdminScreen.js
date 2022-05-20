@@ -6,12 +6,12 @@ import { OutBtnText } from "../features/Texts"
 import { ReturnBtn, OutBtn } from "../features/Buttons"
 import { LogoImg } from "../features/Images"
 
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
  
 const AdminScreen = ({ navigation }) => {
 
-    const jobs = useSelector(state => state.garage.jobs)
-    console.log("from Admin", jobs)
+    // const jobs = useSelector(state => state.garage.jobs)
+    // console.log("from Admin", jobs)
 
     return(
         <UnCenterednContainer>
