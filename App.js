@@ -19,6 +19,7 @@ import EmployeeScreen from './src/screens/EmployeeScreen';
 import AddJob from './src/components/adminComps/AddJob';
 import AssignJob from './src/components/adminComps/AssignJob';
 import Employees from './src/components/adminComps/Employees';
+import ChooseEmployee from './src/screens/ChooseEmployee';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ export default function App() {
           <Stack.Screen name="AddJob" component={AddJob} />
           <Stack.Screen name="AssignJob" component={AssignJob} />
           <Stack.Screen name="Employees" component={Employees} />
+          <Stack.Screen name="ChooseEmployee" component={ChooseEmployee} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

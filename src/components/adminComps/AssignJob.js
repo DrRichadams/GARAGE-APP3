@@ -21,7 +21,7 @@ const AssignJob = ({ navigation }) => {
                             key={index} 
                             style={{ backgroundColor: "rgb(1,161,231)", padding: 8, width: "90%", borderRadius: 5, marginBottom: 8
                             }}
-                            onPress={() => navigation.navigate("Employees")}>
+                            onPress={() => navigation.navigate("Employees", { jobId: item.id })}>
                             <Text style={{ color: "#fff", fontWeight: "bold" }}>{item.make}</Text>
                         </TouchableOpacity>
                     ))

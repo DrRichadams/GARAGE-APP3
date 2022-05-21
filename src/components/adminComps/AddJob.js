@@ -56,6 +56,7 @@ const AddJob = ({ navigation }) => {
         if(job.make && job.tasks.length > 0) {
             dispatch(addJobAction(job))
             console.log(job)
+            navigation.goBack()
         } else {
             alert("Please, provide the required details")
         }

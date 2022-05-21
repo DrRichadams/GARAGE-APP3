@@ -1,4 +1,4 @@
-import { ADD_JOB } from "../actions/GarageActions"
+import { ADD_JOB, ASSIGN_JOB } from "../actions/GarageActions"
 
 const initState = {
     jobs: [  ],
@@ -21,6 +21,40 @@ const GarageReducer = (state = initState, action) => {
                 ...state,
                 jobs: [...state.jobs, { ...action.payload }]
             }
+        case ASSIGN_JOB:
+            // let tempEmployees = state.employees
+            // cur_index = action.payload.employeeId -1
+            // tempEmployees[cur_index].hasJob = true
+            // console.log("We have assigned", state.employees)
+
+            let tempEmployees = state.employees
+            let tempJobs = state.jobs
+            let emp_name = ""
+            let emp_id
+            tempEmployees.forEach(item => {
+                if(item.id == action.payload.employeeId) {
+                    // console.log("We have assigned", action.payload.employeeId)
+                    item.hasJob = true
+                    emp_name = item.name
+                    emp_id = item.id
+                    tempJobs.forEach(job => {
+                        if(job.id == action.payload.jobId) {
+                            job.isAssigned = true
+                            job.employee.name = emp_name
+                            job.employee.id = emp_id
+                            return{
+                                ...state,
+                                employees: tempEmployees,
+                                jobs: tempJobs
+                            }
+                        }
+                    })
+                    
+                } else {
+                    console.log("We have assigned again", action.payload.employeeId)
+                }
+            })
+            
         default:
             return state
     }

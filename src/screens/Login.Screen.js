@@ -20,7 +20,7 @@ const LoginScreen = ({ navigation }) => {
             </OutBtn>
             <OutBtn varient="outline" color="#01050f"
                     onPress={() => {
-                        navigation.navigate("Employee")
+                        navigation.navigate("ChooseEmployee")
                     }}>
                 <OutBtnText>Employee</OutBtnText>
             </OutBtn>
