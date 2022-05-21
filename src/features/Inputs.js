@@ -8,6 +8,10 @@ export const FullInput = styled.TextInput`
     padding: 6px;
 `;
 
+export const LargeInput = styled(FullInput)`
+    width: 90%;
+`;
+
 export const SmallInput = styled.TextInput`
     background-color: #01050f;
     color: #fff;

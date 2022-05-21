@@ -1,4 +1,4 @@
-import { ADD_JOB, ASSIGN_JOB } from "../actions/GarageActions"
+import { ADD_JOB, ASSIGN_JOB, TICK_JOB_TASK, SAVE_REPORT } from "../actions/GarageActions"
 
 const initState = {
     jobs: [  ],
@@ -21,6 +21,34 @@ const GarageReducer = (state = initState, action) => {
                 ...state,
                 jobs: [...state.jobs, { ...action.payload }]
             }
+        case SAVE_REPORT:
+            let theTempJob = state.jobs
+            theTempJob.forEach(item => {
+                if(item.id == action.payload.jobId) {
+                    item.report = action.payload.report
+                    return{
+                        ...state,
+                        jobs: theTempJob
+                    }
+                }
+            })
+            console.log("Ticking a task", action)
+        case TICK_JOB_TASK:
+            let myTempJobs = state.jobs
+            myTempJobs.forEach(item => {
+                if(item.id == action.payload.jobId) {
+                    item.tasks.forEach(task_item => {
+                        if(task_item.id == action.payload.taskId) {
+                            task_item.isDone = true
+                        }
+                    })
+                }
+            })
+            return{
+                ...state,
+                jobs: myTempJobs
+            }
+            // console.log("Ticking a task", action)
         case ASSIGN_JOB:
             // let tempEmployees = state.employees
             // cur_index = action.payload.employeeId -1

@@ -18,14 +18,14 @@ const AdminScreen = ({ navigation }) => {
             <LogoImg 
                 source={require("../../assets/icon.png")}
             />
-            <Title2>Good day Valentine, welcome to your dashboard</Title2>
+            <Title2 style={{ marginBottom: 15 }}>Good day Valentine, welcome to your dashboard</Title2>
             <InnerContainer>
                 <OutBtn onPress={() => navigation.navigate("AddJob")}><OutBtnText>Add Job</OutBtnText></OutBtn>
                 <OutBtn onPress={() => navigation.navigate("AssignJob")}><OutBtnText>Assign Job</OutBtnText></OutBtn>
-                <OutBtn><OutBtnText>Reports</OutBtnText></OutBtn>
+                <OutBtn onPress={() => navigation.navigate("Reports")}><OutBtnText>Reports</OutBtnText></OutBtn>
             </InnerContainer>
 
-            <InnerContainer style={{ alignItems: "flex-start", padding: 20 }}>
+            <InnerContainer style={{ alignItems: "flex-start", padding: 20, marginTop: 12 }}>
                 <Text style={{ fontWeight: "bold", marginBottom: 5 }}>List of all the jobs</Text>
                 <View>
                     {

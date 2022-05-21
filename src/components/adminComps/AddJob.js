@@ -45,7 +45,7 @@ const AddJob = ({ navigation }) => {
             ...job,
             tasks: [
                 ...job.tasks,
-                { id: Math.random(), task_name: tempTask, status: "pending", assigned_employee: "", report: "" }
+                { id: Math.random(), task_name: tempTask, isDone: false }
             ]
         })
 
