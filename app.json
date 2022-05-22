@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "garage-app3",
+    "name": "Garage",
     "slug": "garage-app3",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "garage.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
